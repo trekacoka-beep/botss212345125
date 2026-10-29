@@ -1,0 +1,41 @@
+{
+	"geode": "5.11.2",
+	"gd": {
+		"win": "2.2081"
+	},
+	"id": "gleb.streambot",
+	"name": "Stream Bot",
+	"version": "1.1.0",
+	"developer": "gleb",
+	"description": "Simple macro player: clicks along a GDR2 macro and starts from your current position, so start pos and practice runs work.",
+	"settings": {
+		"bot-enabled": {
+			"type": "bool",
+			"name": "Bot enabled",
+			"description": "F9 toggles it in game as well",
+			"default": false
+		},
+		"macro-file": {
+			"type": "string",
+			"name": "Macro file",
+			"description": "Leave empty to auto-pick the macro of the level you play",
+			"default": ""
+		},
+		"start-offset": {
+			"type": "float",
+			"name": "Start offset (seconds)",
+			"description": "Macro time at the start of the attempt. -1 = automatic, based on your position",
+			"default": -1.0,
+			"min": -1.0,
+			"max": 600.0
+		},
+		"die-before-percent": {
+			"type": "int",
+			"name": "Fake deaths before %",
+			"description": "Bot dies randomly before this percent and never after it. 0 = off. Deaths are biased to the start, like a real person learning the level",
+			"default": 50,
+			"min": 0,
+			"max": 100
+		}
+	}
+}
