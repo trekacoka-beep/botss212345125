@@ -1,0 +1,27 @@
+name: Build Geode Mod
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+
+jobs:
+  build:
+    name: Windows
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Win64
+          bindings: geode-sdk/bindings
+          bindings-ref: main
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: streambot
+          path: ${{ steps.build.outputs.build-output }}
